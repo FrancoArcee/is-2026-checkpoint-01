@@ -20,18 +20,34 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
     networks:
       - teamboard-net
+    volumes:
+      - teamboard-db:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   portainer:
     image: portainer/portainer-ce:latest
+    container_name: portainer
     ports:
       - "${PORTAINER_PORT}:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
     networks:
       - teamboard-net
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
 
 networks:
   teamboard-net:
     driver: bridge
+    
+volumes:
+  teamboard-db:
+  portainer_data:
