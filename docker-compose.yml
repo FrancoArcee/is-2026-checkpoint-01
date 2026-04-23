@@ -20,10 +20,13 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
     networks:
       - teamboard-net
     volumes:
       - teamboard-db:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   portainer:
     image: portainer/portainer-ce:latest
@@ -39,4 +42,4 @@ networks:
     driver: bridge
 
 volumes:
-  - /database/init.sql:/docker-entrypoint-initdb.d/init.sql
+  - teamboard-db:
