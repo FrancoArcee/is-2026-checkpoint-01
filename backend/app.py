@@ -8,10 +8,10 @@ app = Flask(__name__)
 #funcion para establecer y devolver conexion con bd usando variables de entorno
 def get_db_connection():
     conn = psycopg2.connect(
-        host=os.environ.get('POSTGRES_HOST', 'database'),
-        database=os.environ.get('POSTGRES_DB', 'teamboard'),
-        user=os.environ.get('POSTGRES_USER', 'user'),
-        password=os.environ.get('POSTGRES_PASSWORD', 'password')
+        host=os.environ.get('POSTGRES_HOST'),
+        database=os.environ.get('POSTGRES_DB'),
+        user=os.environ.get('POSTGRES_USER'),
+        password=os.environ.get('POSTGRES_PASSWORD')
     )
     return conn
 
@@ -23,15 +23,18 @@ def health_check():
 #obtiene datos de integrantes desde bd
 @app.route('/api/team', methods=['GET'])
 def get_team():
-    conn = get_db_connection() #instancia conexion a bd
+    try: 
+        conn = get_db_connection() #instancia conexion a bd
 
-    #crea cursor que formatea datos q obtendra al realizar la query en formato campo:valor
-    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-    cur.execute('SELECT * FROM members;')
-    members = cur.fetchall() #extrae resultado de query y los guarda en var 'members'
-    cur.close() #destruye cursor (libera memoria del servidor)
-    conn.close() #cierra conexion a bd
-    return jsonify(members), 200 #convierte la respuesta a json y la envia
+        #crea cursor que formatea datos q obtendra al realizar la query en formato campo:valor
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute('SELECT * FROM members;')
+        members = cur.fetchall() #extrae resultado de query y los guarda en var 'members'
+        cur.close() #destruye cursor (libera memoria del servidor)
+        conn.close() #cierra conexion a bd
+        return jsonify(members), 200 #convierte la respuesta a json y la envia
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 #devuelve metadatos del back
 @app.route('/api/info', methods=['GET'])
