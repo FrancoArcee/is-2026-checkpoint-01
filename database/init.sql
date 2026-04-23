@@ -8,10 +8,9 @@ CREATE TABLE IF NOT EXISTS members (
     estado VARCHAR(50)
 );
 
-
-INSERT INTO members (nombre, apellido, legajo, feature, servicio)
-VALUES ('Franco', 'Arce', '33307', 'feature 01', 'Coordinación, Infraestructura Base y README');
-VALUES ('Dante', 'Barbe', '33376', 'feature 02', 'Frontend — Página Web con HTML y JavaScript');
-VALUES ('Santiago', 'Andrada', '33363', 'feature 03', 'Backend — API REST con Python y Flask');
-VALUES ('Nicolás', 'Diez', '33381', 'feature 04', 'Base de Datos con PostgreSQL');
-VALUES ('Ramiro', 'Gil', '33495', 'feature 05', 'Panel de Monitoreo con Portainer');
+INSERT INTO members (nombre, apellido, legajo, feature, servicio, estado)
+VALUES ('Franco', 'Arce', '33307', 'feature 01', 'Coordinación, Infraestructura Base y README', 'FINALIZADO'),
+       ('Dante', 'Barbe', '33376', 'feature 02', 'Frontend', 'ACTIVO'),
+       ('Santiago', 'Andrada', '33363', 'feature 03', 'Backend', 'ACTIVO'),
+       ('Nicolás', 'Diez', '33381', 'feature 04', 'Base de Datos', 'ACTIVO'),
+       ('Ramiro', 'Gil', '33495', 'feature 05', 'Panel de Monitoreo', 'ACTIVO');
