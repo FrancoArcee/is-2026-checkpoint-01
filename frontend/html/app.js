@@ -17,7 +17,7 @@ Promise.all([
   data.forEach(miembro => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
-      <td>${miembro.nombre}</td>
+      <td>${miembro.nombre} ${miembro.apellido}</td>
       <td>${miembro.legajo}</td>
       <td>${miembro.feature}</td>
       <td>${miembro.servicio}</td>
