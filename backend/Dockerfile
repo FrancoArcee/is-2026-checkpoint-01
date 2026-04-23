@@ -10,8 +10,8 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-#copia el resto del codigo
-COPY . .
+#copia app.py especifico como indica el pdf en la pagina 5.
+COPY app.py .
 
 #activa usuario sin privilegios
 USER appuser
