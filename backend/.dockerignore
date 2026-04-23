@@ -1,0 +1,13 @@
+#excluye la carpeta de git y el historial de cambios
+.git
+.gitignore
+
+.env
+
+#archivos temporales de python y el entorno virtual local
+__pycache__/
+*.pyc
+venv/
+
+#configuraciones de editor
+.vscode/
