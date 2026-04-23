@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS members (
 );
 
 INSERT INTO members (nombre, apellido, legajo, feature, servicio, estado)
-VALUES ('Franco', 'Arce', '33307', 'feature 01', 'Coordinación, Infraestructura Base y README', 'FINALIZADO'),
-       ('Dante', 'Barbe', '33376', 'feature 02', 'Frontend', 'ACTIVO'),
-       ('Santiago', 'Andrada', '33363', 'feature 03', 'Backend', 'ACTIVO'),
-       ('Nicolás', 'Diez', '33381', 'feature 04', 'Base de Datos', 'ACTIVO'),
-       ('Ramiro', 'Gil', '33495', 'feature 05', 'Panel de Monitoreo', 'ACTIVO');
+VALUES ('Franco', 'Arce', 33307, 'feature 01', 'Coordinación, Infraestructura Base y README', 'FINALIZADO'),
+       ('Dante', 'Barbe', 33376, 'feature 02', 'Frontend', 'ACTIVO'),
+       ('Santiago', 'Andrada', 33363, 'feature 03', 'Backend', 'ACTIVO'),
+       ('Nicolás', 'Diez', 33381, 'feature 04', 'Base de Datos', 'ACTIVO'),
+       ('Ramiro', 'Gil', 33495, 'feature 05', 'Panel de Monitoreo', 'ACTIVO');
