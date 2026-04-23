@@ -24,6 +24,7 @@ services:
       - teamboard-net
     volumes:
       - teamboard-db:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   portainer:
     image: portainer/portainer-ce:latest
@@ -39,4 +40,4 @@ networks:
     driver: bridge
 
 volumes:
-  - /database/init.sql:/docker-entrypoint-initdb.d/init.sql
+  - teamboard-db:
