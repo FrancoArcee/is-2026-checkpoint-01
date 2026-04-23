@@ -8,25 +8,6 @@ CREATE TABLE IF NOT EXISTS members (
     estado VARCHAR(50)
 );
 
-Legajo	Apellido	Nombre 
-33307	Arce	Franco
-33376	Barbe	Dante
-33363	Andrada	Santiago
-33381	Diez	Nicolás
-33495	Gil	Ramiro
-feature: 
-feature 01
-feature 02
-feature 03
-feature 04
-feature 05
-servicio: 
-Coordinación, Infraestructura Base y README
-Frontend — Página Web con HTML y JavaScript
-Backend — API REST con Python y Flask
-Base de Datos con PostgreSQL
-Panel de Monitoreo con Portainer
-
 
 INSERT INTO members (nombre, apellido, legajo, feature, servicio)
 VALUES ('Franco', 'Arce', '33307', 'feature 01', 'Coordinación, Infraestructura Base y README');
