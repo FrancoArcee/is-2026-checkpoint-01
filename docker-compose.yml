@@ -22,6 +22,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     networks:
       - teamboard-net
+    volumes:
+      - teamboard-db:/var/lib/postgresql/data
 
   portainer:
     image: portainer/portainer-ce:latest
@@ -35,3 +37,6 @@ services:
 networks:
   teamboard-net:
     driver: bridge
+
+volumes:
+  - /database/init.sql:/docker-entrypoint-initdb.d/init.sql
