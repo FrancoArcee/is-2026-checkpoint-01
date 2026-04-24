@@ -1,9 +1,11 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import psycopg2
 import psycopg2.extras
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 #funcion para establecer y devolver conexion con bd usando variables de entorno
 def get_db_connection():
