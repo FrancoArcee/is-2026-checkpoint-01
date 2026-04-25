@@ -65,9 +65,14 @@ Aplicación web que muestra los integrantes del equipo, la feature que implement
 
 ## Panel de monitoreo — Portainer
 
-*(A completar)*
+Portainer es una interfaz web que permite visualizar y administrar todos los contenedores Docker desde el navegador sin necesidad de usar la terminal.
 
-## Capturas de pantalla
+**Acceso:** http://localhost:9000
+
+La primera vez que se accede, Portainer solicita crear un usuario administrador.
+Una vez dentro, ir a **Local → Containers** para ver el estado de todos los servicios del proyecto.
+
+El servicio monta el socket de Docker (`/var/run/docker.sock`) para comunicarse con el daemon, y utiliza un volumen nombrado (`portainer_data`) para persistir la configuración entre reinicios.
 
 ### TeamBoard App
 
@@ -75,4 +80,5 @@ Aplicación web que muestra los integrantes del equipo, la feature que implement
 
 ### Portainer
 
-*(A completar)*
+![portainer-screenshot](image/README/portainer-screenshot.png)
+
